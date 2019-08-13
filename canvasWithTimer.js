@@ -43,14 +43,6 @@ Notice in the .html source file there are no pre-attached handlers.
 
 //Use javascript array of objects to represent words and their locations
 const words = []
-// words.push({ word: "I", x: 50, y: 50 })
-// words.push({ word: "like", x: 70, y: 50 })
-// words.push({ word: "the", x: 120, y: 50 })
-// words.push({ word: "way", x: 170, y: 50 })
-// words.push({ word: "your", x: 230, y: 50 })
-// words.push({ word: "sparkling", x: 300, y: 50 })
-// words.push({ word: "earings", x: 430, y: 50 })
-// words.push({ word: "lay", x: 530, y: 50 })
 
 let movingString = {
   word: "Moving",
@@ -170,7 +162,6 @@ function drawCanvas0() {
 
   context.fillStyle = "white";
   context.fillRect(0, 0, canvas0.width, canvas0.height); //erase canvas
-  // context.fillRect(0, 0, canvas2.width, canvas2.height); //erase canvas
 
   context.font = "" + fontPointSize + "pt " + editorFont;
   context.fillStyle = "cornflowerblue";
@@ -187,7 +178,6 @@ function drawCanvas0() {
 
   //draw moving box
   context.fillRect(movingBox.x, movingBox.y, movingBox.width, movingBox.height);
-  // context.fillRect(movingBox.x, movingBox.y, movingBox.width, movingBox.height);
 
   //draw circle
   context.beginPath()
@@ -206,7 +196,6 @@ function drawCanvas0() {
     2 * Math.PI //end angle
   )
   context.stroke()
-
   //draw box around word last targeted with mouse -for debugging
   context.strokeStyle = "red";
   context.strokeRect(
@@ -235,7 +224,6 @@ function handleMouseDown(e) {
     $("#canvas1").mouseup(handleMouseUp)
 
   }
-
   // Stop propagation of the event and stop any default
   //  browser action
   e.stopPropagation()
@@ -268,9 +256,7 @@ function handleMouseUp(e) {
   //remove mouse move and mouse up handlers but leave mouse down handler
   $("#canvas1").off("mousemove", handleMouseMove); //remove mouse move handler
   $("#canvas1").off("mouseup", handleMouseUp); //remove mouse up handler
-  // $("#canvas2").off("mousemove", handleMouseMove); //remove mouse move handler
-  // $("#canvas2").off("mouseup", handleMouseUp); //remove mouse up handler
-
+ 
   drawCanvas() //redraw the canvas
 }
 
@@ -346,14 +332,11 @@ function handleKeyUp(e) {
 $(document).ready(function() {
   //add mouse down listener to our canvas object
   $("#canvas1").mousedown(handleMouseDown)
-  // $("#canvas2").mousedown(handleMouseDown)
   //add keyboard handler to document
   $(document).keydown(handleKeyDown)
   $(document).keyup(handleKeyUp)
 
   timer = setInterval(handleTimer, 100) //tenth of second
   //pollingTimer = setInterval(pollingTimerHandler, 100) //quarter of a second
-  //clearTimeout(timer) //to stop
-
   drawCanvas()
 })
