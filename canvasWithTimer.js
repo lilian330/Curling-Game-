@@ -2,14 +2,9 @@
 (c) 2018 Lilian Wang, Bowen Wang
 
 Javasript to handle mouse dragging and release
-to drag a string around the html canvas
-Keyboard arrow keys are used to move a moving box around
-(The mouse co-ordinates are wrong if the canvas is scrolled with scroll bars.
- Exercise: can you fix this?)
+to drag a curling ball
 
-Here we are doing all the work with javascript and jQuery. (none of the words
-are HTML, or DOM, elements. The only DOM element is just the canvas on which
-where are drawing.
+all the work with javascript and jQuery. 
 
 This example shows examples of using JQuery
 JQuery syntax:
@@ -19,11 +14,6 @@ $(this).hide() - hides the current element.
 $("p").hide() - hides all <p> elements.
 $(".test").hide() - hides all elements with class="test".
 $("#test").hide() - hides the element with id="test".
-
-Mouse event handlers are being added and removed using jQuery and
-a jQuery event object is being passed to the handlers
-
-Keyboard keyDown handler is being used to move a "moving box" around
 
 Notice in the .html source file there are no pre-attached handlers.
 */
@@ -107,11 +97,9 @@ function getWordAtLocation(aCanvasX, aCanvasY) {
 
 function drawCanvas() {
   const context = canvas.getContext("2d");
-  // const context = canvas2.getContext("2d");
 
   context.fillStyle = "white";
   context.fillRect(0, 0, canvas.width, canvas.height); //erase canvas
-  // context.fillRect(0, 0, canvas2.width, canvas2.height); //erase canvas
 
   context.font = "" + fontPointSize + "pt " + editorFont;
   context.fillStyle = "cornflowerblue";
@@ -128,7 +116,6 @@ function drawCanvas() {
 
   //draw moving box
   context.fillRect(movingBox.x, movingBox.y, movingBox.width, movingBox.height);
-  // context.fillRect(movingBox.x, movingBox.y, movingBox.width, movingBox.height);
 
   //draw circle
   context.beginPath()
